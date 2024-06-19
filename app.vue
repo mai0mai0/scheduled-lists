@@ -81,5 +81,10 @@ export default {
         <p>Loading...</p>
       </div>
     </div>
+
+    <div class="pt-10">
+      <p class="text-center text-gray-400 text-s opacity-50">aaron mai</p>
+      <p class="text-center text-gray-300 text-xs opacity-50">2024</p>
+    </div>
   </div>
 </template>

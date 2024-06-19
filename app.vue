@@ -36,28 +36,30 @@ export default {
 
         <h1 class="text-center text-2xl font-bold mb-4">{{ itemData.list_name }}</h1>
 
-        <table class="min-w-full divide-y divide-gray-200">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200 table-auto overflow-scroll">
 
-          <thead class="bg-gray-50">
-            <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ itemData.item_type }}</th>
-              <th v-for="check in itemData.check_items" :key="check" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ check }}</th>
-            </tr>
-          </thead>
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ itemData.item_type }}</th>
+                <th v-for="check in itemData.check_items" :key="check" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ check }}</th>
+              </tr>
+            </thead>
 
-          <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-white divide-y divide-gray-200">
 
-            <tr v-for="item in itemData.list_items" :key="item">
+              <tr v-for="item in itemData.list_items" :key="item">
 
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ item }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ item }}</td>
 
-              <td v-for="check in itemData.check_items" :key="check" class="px-6 py-4 whitespace-nowrap">
-                <input type="checkbox" :id="`${item}-${check}-checkbox`" class="form-checkbox h-5 w-5 text-blue-600" />
-              </td>
+                <td v-for="check in itemData.check_items" :key="check" class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox" :id="`${item}-${check}-checkbox`" class="form-checkbox h-5 w-5 text-blue-600" />
+               </td>
 
-            </tr>
-          </tbody>
-        </table>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="mt-4">
           <label for="notes" class="block text-sm font-medium text-gray-700">Notes</label>

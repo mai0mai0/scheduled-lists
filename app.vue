@@ -36,11 +36,14 @@ export default {
 
         <h1 class="text-center text-2xl font-bold mb-4">{{ itemData.list_name }}</h1>
 
+        <!-- Table for list items and checkboxes -->
         <div class="overflow-x-auto">
+          <!-- Table will scroll on overflow of the div -->
           <table class="min-w-full divide-y divide-gray-200 table-auto overflow-scroll">
 
             <thead class="bg-gray-50">
               <tr>
+                <!-- Generate headers from JSON contents -->
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ itemData.item_type }}</th>
                 <th v-for="check in itemData.check_items" :key="check" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ check }}</th>
               </tr>
@@ -48,10 +51,12 @@ export default {
 
             <tbody class="bg-white divide-y divide-gray-200">
 
+              <!-- Generate list from JSON list items -->
               <tr v-for="item in itemData.list_items" :key="item">
 
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ item }}</td>
 
+                <!-- Generate checkboxes foe each list item and each header item -->
                 <td v-for="check in itemData.check_items" :key="check" class="px-6 py-4 whitespace-nowrap">
                   <input type="checkbox" :id="`${item}-${check}-checkbox`" class="form-checkbox h-5 w-5 text-blue-600" />
                </td>
@@ -61,10 +66,12 @@ export default {
           </table>
         </div>
 
+        <!-- Notes section -->
         <div class="mt-4">
           <label for="notes" class="block text-sm font-medium text-gray-700">Notes</label>
           <textarea id="notes" name="notes" rows="4" class="pl-2 pt-1 mt-1 block w-full rounded-md border-black shadow-md focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
         </div>
+        <!-- Submit button does not do anything on the backend yet -->
         <div class="flex justify-end mt-4">
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">Submit</button>
         </div>

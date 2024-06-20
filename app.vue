@@ -9,7 +9,7 @@ export default {
     const notes = ref('')
     const checkboxes = ref({})
     const submitButton = ref('')
-    const listname = ref('')
+    //make sure people cannot submit more than once per session
     let wasSubmitted = false
 
     //fetch data from the json file
@@ -33,7 +33,6 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            listname: listname.value,
             checkboxes: checkboxes.value,
             notes: notes.value
           }),
@@ -56,7 +55,6 @@ export default {
     onMounted(() => {
       fetchData()
       submitButton.value = 'Submit'
-      listname.value = itemData.list_name
     })
 
     return {

@@ -32,6 +32,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            listname: itemData.list_name,
             checkboxes: checkboxes.value,
             notes: notes.value
           }),

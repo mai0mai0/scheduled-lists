@@ -29,9 +29,9 @@ exports.handler = async (event, context) => {
     // Create the email content
     let mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'aaron.mai@knak.com', // Replace with your recipient email address
-      subject: 'Form Submission',
-      text: `Checkboxes:\n${checkboxStatus}\n\nNotes: ${notes}`,
+      to: 'aaron.mai@knak.com', 
+      subject: `${listname} Submission`,
+      text: `Checks:\n${checkboxStatus}\n\nNotes: ${notes}`,
     };
 
     // Send the email

@@ -21,9 +21,9 @@ exports.handler = async (event, context) => {
     //Format checkbox data
     const checkboxStatus = Object.entries(checkboxes).map(([item, checks]) => {
         const checksFormatted = Object.entries(checks).map(([check, status]) => {
-          return `${check}: ${status ? 'true' : 'false'}`;
+          return `${check}: ${status ? 'working' : 'not working'}`;
         }).join(', ');
-        return `${item}: { ${checksFormatted} }`;
+        return `${item}: \n ${checksFormatted}`;
       }).join('\n');
 
     // Create the email content
@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
       from: process.env.EMAIL_USER,
       to: 'aaron.mai@knak.com', 
       subject: `Form Submission`,
-      text: `Checks:\n${checkboxStatus}\nNotes: ${notes}`,
+      text: `Checks:\n${checkboxStatus}\n\nNotes: ${notes}`,
     };
 
     // Send the email

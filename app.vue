@@ -83,7 +83,7 @@ export default {
     </div>
 
     <div class="pt-10">
-      <p class="text-center text-gray-400 text-s opacity-50">Knak.</p>
+      <p class="text-center text-gray-400 text-s opacity-50"></p>
       <p class="text-center text-gray-300 text-xs opacity-50">aaron mai - 2024</p>
     </div>
   </div>

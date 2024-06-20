@@ -8,6 +8,8 @@ export default {
     //to store notes and checkbox data
     const notes = ref('')
     const checkboxes = ref({})
+    const submitButton = ref('')
+    let wasSubmitted = false
 
     //fetch data from the json file
     const fetchData = async () => {
@@ -22,7 +24,8 @@ export default {
     }
 
     const submitForm = async() => {
-      try {
+      if(!wasSubmitted){
+        try {
         const response = await fetch('/.netlify/functions/send-email', {
           method: 'POST',
           headers: {
@@ -35,25 +38,30 @@ export default {
         })
         const result = await response.json()
         if (result.success){
-          alert('Submitted successfully')
+          console.log('Submitted successfully')
           notes.value = ''
+          submitButton.value = 'Submitted!'
+          wasSubmitted = true
         } else {
           alert('Failed to submit')
         }
       } catch (error) {
         console.error('Error submitting form:', error)
       }
+      }
     }
 
     onMounted(() => {
       fetchData()
+      submitButton.value = 'Submit'
     })
 
     return {
       itemData,
       notes,
       checkboxes,
-      submitForm
+      submitForm,
+      submitButton
     }
   }
 }
@@ -104,7 +112,7 @@ export default {
         </div>
         <!-- Submit button -->
         <div class="flex justify-end mt-4">
-          <button @click="submitForm" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">Submit</button>
+          <button @click="submitForm" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">{{ submitButton }}</button>
         </div>
 
       </div>

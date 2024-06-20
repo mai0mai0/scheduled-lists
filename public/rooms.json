@@ -4,6 +4,6 @@
         "list_name": "Weekly Meeting Room Checks",
         "list_items": ["Antares", "Dark Mode", "Bighetti", "Light Mode"],
         "item_type": "Room",
-        "check_items": ["Zoom", "Meet", "Teams"] 
+        "check_items": ["Zoom", "Meets", "Teams"] 
     }
 ]

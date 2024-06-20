@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
           from: process.env.EMAIL_USER,
           to: 'aaron.mai@knak.com', 
           subject: `Form Submission`,
-          text: `Checks:\n${checkboxStatus}\n\nNotes: ${notes}`,
+          text: `Checks:\n\n${checkboxStatus}\n\nNotes: ${notes}`,
         };
 
         // Send the email

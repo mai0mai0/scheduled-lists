@@ -15,7 +15,7 @@ export default {
     //fetch data from the json file
     const fetchData = async () => {
       try{
-        const res = await fetch('test.json')
+        const res = await fetch('rooms.json')
         const data = await res.json()
         itemData.value = data[0]
         console.log('JSON data fetched successfully.')

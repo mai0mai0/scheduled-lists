@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
   try {
-    const { checkboxes, notes } = JSON.parse(event.body);
+    const { listname, checkboxes, notes } = JSON.parse(event.body);
 
     // Ensure EMAIL_USER and EMAIL_PASS are defined
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {

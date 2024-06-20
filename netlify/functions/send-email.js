@@ -19,12 +19,12 @@ exports.handler = async (event, context) => {
     });
 
     //Format checkbox data
-    const checkBoxStatus = object.keys(checkboxes).map(item => {
-        const checks = Object.keys(checkboxes[item]).map(check => {
-            return `${check}: ${checkboxes[item][check] ? 'true' : 'false'}`;
+    const checkboxStatus = Object.entries(checkboxes).map(([item, checks]) => {
+        const checksFormatted = Object.entries(checks).map(([check, status]) => {
+          return `${check}: ${status ? 'true' : 'false'}`;
         }).join(', ');
-        return `${item}: { ${checks} }`;
-    }).join('\n');
+        return `${item}: { ${checksFormatted} }`;
+      }).join('\n');
 
     // Create the email content
     let mailOptions = {

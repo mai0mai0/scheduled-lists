@@ -36,6 +36,7 @@ export default {
         const result = await response.json()
         if (result.success){
           alert('Submitted successfully')
+          notes.value = ''
         } else {
           alert('Failed to submit')
         }
@@ -87,8 +88,17 @@ export default {
 
                 <!-- Generate checkboxes for each list item and each header item -->
                 <td v-for="check in itemData.check_items" :key="check" class="px-6 py-4 whitespace-nowrap">
-                  <input type="checkbox" :id="`${item}-${check}-checkbox`" class="form-checkbox h-5 w-5 text-blue-600"
-                         @change="event => checkboxes[item] = {...checkboxes[item], [check]: event.target.checked}" />
+                  <input
+                    type="checkbox"
+                    :id="`${item}-${check}-checkbox`"
+                    class="form-checkbox h-5 w-5 text-blue-600"
+                    @change="event => {
+                      if (!checkboxes.value[item]) {
+                        checkboxes.value[item] = {};
+                      }
+                      checkboxes.value[item][check] = event.target.checked;
+                    }"
+                  />
                </td>
 
               </tr>

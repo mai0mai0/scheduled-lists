@@ -5,6 +5,9 @@ export default {
   setup(){
     //to store json data
     const itemData = ref(null)
+    //to store notes and checkbox data
+    const notes = ref('')
+    const checkboxes = ref({})
 
     //fetch data from the json file
     const fetchData = async () => {

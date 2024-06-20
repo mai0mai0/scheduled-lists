@@ -18,12 +18,20 @@ exports.handler = async (event, context) => {
       },
     });
 
+    //Format checkbox data
+    const checkBoxStatus = object.keys(checkboxes).map(item => {
+        const checks = Object.keys(checkboxes[item]).map(check => {
+            return `${check}: ${checkboxes[item][check] ? 'true' : 'false'}`;
+        }).join(', ');
+        return `${item}: { ${checks} }`;
+    }).join('\n');
+
     // Create the email content
     let mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'aaron.mai@knak.com', // Replace with your recipient email address
       subject: 'Form Submission',
-      text: `Checkboxes: ${JSON.stringify(checkboxes)}\nNotes: ${notes}`,
+      text: `Checkboxes:\n${checkboxStatus}\n\nNotes: ${notes}`,
     };
 
     // Send the email

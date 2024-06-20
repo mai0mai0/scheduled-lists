@@ -3,6 +3,8 @@ const nodemailer = require('nodemailer');
 exports.handler = async (event, context) => {
   try {
     const { listname, checkboxes, notes } = JSON.parse(event.body);
+    
+    console.log(listname)
 
     // Ensure EMAIL_USER and EMAIL_PASS are defined
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {

@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
         // Create the email content
         let mailOptions = {
           from: process.env.EMAIL_USER,
-          to: 'ithelpdesk@knak.com', 
+          to: 'aaron.mai@knak.com', 
           subject: `Form Submission`,
           text: `Checks:\n\n${checkboxStatus}\n\nNotes: ${notes}`,
         };

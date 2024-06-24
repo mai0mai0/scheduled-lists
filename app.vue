@@ -79,7 +79,7 @@ export default {
       <Title> Loading... </Title>
     </Head>
   </div>
-  
+
   <div class="bg-white">
     <div class="bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
       <div v-if="itemData">
@@ -135,7 +135,7 @@ export default {
     </div>
 
     <div class="pt-10">
-      <p class="text-center text-gray-400 text-s opacity-50"></p>
+      <p class="text-center text-gray-400 text-s opacity-50">Scheduled Lists</p>
       <p class="text-center text-gray-300 text-xs opacity-50">aaron mai - 2024</p>
     </div>
   </div>

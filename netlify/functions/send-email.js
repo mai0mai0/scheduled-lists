@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
         }).join('\n');
 
         // Create the email content
-        // to add: additional email formatted, potetially with HTML
+        // to add: additional email formatted, potentially with HTML
         let mailOptions = {
           from: process.env.EMAIL_USER,
           // addressed to my work email for now

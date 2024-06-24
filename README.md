@@ -1,4 +1,4 @@
-# Scheduled List
+# Scheduled Lists
 
 ## Checklist loader
 

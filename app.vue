@@ -74,6 +74,10 @@ export default {
     <Head v-if="itemData">
       <Title>{{ itemData.list_name }}</Title>
     </Head>
+    <!-- Make sure title is not null before JSON data has been loaded -->
+    <Head v-else>
+      <Title> Loading... </Title>
+    </Head>
   </div>
   <div class="bg-white">
     <div class="bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">

@@ -69,8 +69,9 @@ export default {
 </script>
 
 <template>
+  <!-- Page title will match the name of the list from the JSON file -->
   <div>
-    <Head>
+    <Head v-if="itemData">
       <Title>{{ itemData.list_name }}</Title>
     </Head>
   </div>

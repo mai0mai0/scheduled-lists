@@ -109,7 +109,7 @@ export default {
         <!-- Notes section -->
         <div class="mt-4">
           <label for="notes" class="block text-sm font-medium text-gray-700">Notes</label>
-          <textarea id="notes" name="notes" rows="4" v-model="notes" class="pl-2 pr-2 pt-1 mt-1 block w-full rounded-md border-black shadow-md focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
+          <textarea id="notes" name="notes" rows="4" v-model="notes" class="pl-2 pr-2 pt-1 mt-1 block w-full rounded-md shadow-md border-blue-500 ring-blue-500 sm:text-sm"></textarea>
         </div>
         <!-- Submit button -->
         <div class="flex justify-end mt-4">

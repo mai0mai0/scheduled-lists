@@ -24,14 +24,20 @@ export default {
       }
     }
 
+    //submit the form to an email address when the submit button is clicked
+    //todo: replace email submission with database storage 
     const submitForm = async() => {
+      //ensure the user can only submit once per session
+      //todo: ensure the user cannot submit blank submisions
       if(!wasSubmitted){
         try {
+          //fetch netlify function
         const response = await fetch('/.netlify/functions/send-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
+          //pass list data into netlify function
           body: JSON.stringify({
             checkboxes: checkboxes.value,
             notes: notes.value
@@ -52,6 +58,7 @@ export default {
       }
     }
 
+    //fetch data and reset submit button on page load
     onMounted(() => {
       fetchData()
       submitButton.value = 'Submit'

@@ -1,6 +1,6 @@
-const nodemailer = require('nodemailer');
+import { createTransport } from 'nodemailer'
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
     try {
         const { checkboxes, notes } = JSON.parse(event.body);
 
@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
         }
 
         // Create a nodemailer transporter object with the email credentials from netlify
-        let transporter = nodemailer.createTransport({
+        let transporter = createTransport({
           service: 'Gmail',
           auth: {
             user: process.env.EMAIL_USER,
@@ -53,4 +53,4 @@ exports.handler = async (event, context) => {
           body: JSON.stringify({ success: false, error: error.message }),
         };
     }
-};
+}
